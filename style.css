@@ -558,7 +558,7 @@ footer {
   height: 200px;
   border: 0;
   border-radius: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 #music-toggle {
@@ -585,8 +585,8 @@ footer {
 
 @media (max-width: 600px) {
   .music-player {
-    bottom: 10px;
-    right: 10px;
+    bottom: 8px;
+    right: 8px;
   }
 
   #music-frame {
@@ -595,7 +595,7 @@ footer {
   }
 
   #music-toggle {
-    padding: 8px 12px;
+    padding: 7px 10px;
     font-size: 12px;
   }
 }
