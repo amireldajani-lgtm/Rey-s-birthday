@@ -8,6 +8,7 @@
   <meta name="description" content="A little birthday surprise made especially for Rey.">
   <title>Rey's Birthday</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -95,6 +96,23 @@
         Never forget that. ❤️
       </p>
     </section>
+
+    <!-- Background music: Santana - Maria Maria -->
+<div id="music-player" class="music-player">
+  <iframe
+  id="music-frame"
+  title="Maria Maria by Santana"
+  width="250"
+  height="200"
+  src="https://www.youtube.com/embed/nPLV7lGbmT4?enablejsapi=1&playsinline=1"
+  allow="autoplay; encrypted-media"
+  referrerpolicy="strict-origin-when-cross-origin">
+</iframe>
+
+  <button id="music-toggle" type="button" aria-label="Play music">
+    ♫ Play music
+  </button>
+</div>
 
     
   </main>

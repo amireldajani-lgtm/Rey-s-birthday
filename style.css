@@ -545,3 +545,40 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+.music-player {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 1000;
+}
+
+#music-frame {
+  display: block;
+  width: 250px;
+  height: 200px;
+  border: 0;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+#music-toggle {
+  border: 1px solid rgba(166, 105, 119, 0.35);
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: rgba(255, 250, 247, 0.95);
+  color: #875362;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(90, 45, 55, 0.12);
+}
+
+#music-toggle:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+#music-toggle:focus-visible {
+  outline: 2px solid #875362;
+  outline-offset: 3px;
+}

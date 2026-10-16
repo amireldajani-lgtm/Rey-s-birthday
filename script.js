@@ -7,10 +7,64 @@ const birthdayMessage = document.querySelector("#birthday-message");
 const finalMessage = document.querySelector("#final-message");
 const petalField = document.querySelector(".petal-field");
 
+let musicPlayer;
+let musicReady = false;
+let musicPlaying = false;
+
+const musicButton = document.querySelector("#music-toggle");
+
+// YouTube calls this function when its player API is ready.
+window.onYouTubeIframeAPIReady = function () {
+  musicPlayer = new YT.Player("music-frame", {
+    events: {
+      onReady: function () {
+        musicReady = true;
+      },
+      onStateChange: function (event) {
+        musicPlaying = event.data === YT.PlayerState.PLAYING;
+        musicButton.textContent = musicPlaying
+          ? "♫ Pause music"
+          : "♫ Play music";
+        musicButton.setAttribute(
+          "aria-label",
+          musicPlaying ? "Pause music" : "Play music"
+        );
+      }
+    }
+  });
+};
+
+function playMusic() {
+  if (!musicReady || !musicPlayer) {
+    musicButton.textContent = "♫ Music loading…";
+    return;
+  }
+
+  musicPlayer.playVideo();
+}
+
+function toggleMusic() {
+  if (!musicReady || !musicPlayer) {
+    musicButton.textContent = "♫ Music loading…";
+    return;
+  }
+
+  if (musicPlaying) {
+    musicPlayer.pauseVideo();
+  } else {
+    musicPlayer.playVideo();
+  }
+}
+
+musicButton.addEventListener("click", toggleMusic);
+
+
 let petalsStarted = false;
 
 // First interaction: bloom the bouquet and reveal the birthday wish.
 openButton.addEventListener("click", () => {
+
+  playMusic();
   bouquet.classList.add("blooming");
 
   // Reveal the first message after the flowers have time to bloom.
