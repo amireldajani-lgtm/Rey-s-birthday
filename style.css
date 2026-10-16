@@ -554,11 +554,11 @@ footer {
 
 #music-frame {
   display: block;
-  width: 250px;
+  width: 200px;
   height: 200px;
   border: 0;
   border-radius: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 #music-toggle {
@@ -581,4 +581,21 @@ footer {
 #music-toggle:focus-visible {
   outline: 2px solid #875362;
   outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .music-player {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  #music-frame {
+    width: 200px;
+    height: 200px;
+  }
+
+  #music-toggle {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
 }
