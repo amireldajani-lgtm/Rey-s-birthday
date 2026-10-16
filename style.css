@@ -1,0 +1,547 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+:root {
+  --paper: #fff8f3;
+  --ink: #543c43;
+  --muted: #987d83;
+  --rose: #d96f88;
+  --rose-dark: #bd526f;
+  --green: #64866a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 12% 18%, #f4cdd04f, transparent 36%),
+    radial-gradient(ellipse at 90% 80%, #e2dabe52, transparent 34%),
+    var(--paper);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 32px, 720px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 44px 0 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+}
+
+h1 {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(42px, 8vw, 68px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+}
+
+.title-flower {
+  color: var(--rose);
+}
+
+.intro {
+  max-width: 360px;
+  margin: 15px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* The bouquet stage */
+.gift {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(100%, 430px);
+  height: 340px;
+  margin: 4px 0 0;
+}
+
+.bouquet {
+  position: relative;
+  width: 320px;
+  height: 315px;
+  transform: translateY(8px);
+}
+
+/* Each tulip gets its own position and angle. */
+.tulip {
+  position: absolute;
+  z-index: 1;
+  bottom: 53px;
+  width: 66px;
+  height: 218px;
+  transform-origin: 50% 100%;
+}
+
+.tulip-1 { left: 38px; transform: rotate(-27deg); }
+.tulip-2 { left: 78px; transform: rotate(-17deg); }
+.tulip-3 { left: 122px; transform: rotate(-6deg); }
+.tulip-4 { left: 169px; transform: rotate(10deg); }
+.tulip-5 { left: 30px; transform: rotate(-11deg) scale(.91); }
+.tulip-6 { left: 135px; transform: rotate(8deg) scale(.94); }
+.tulip-7 { left: 203px; transform: rotate(21deg) scale(.88); }
+
+/* Stems grow from the bottom of the bouquet. */
+.stem {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 31px;
+  width: 5px;
+  height: 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #4f7758, #91ad7e);
+  transform-origin: bottom;
+}
+
+.leaf {
+  position: absolute;
+  z-index: 1;
+  bottom: 34px;
+  width: 40px;
+  height: 18px;
+  opacity: 0;
+  background: linear-gradient(130deg, #a8c49a, #527b5d);
+}
+
+.leaf-left {
+  left: -4px;
+  border-radius: 100% 0 100% 0;
+  transform: rotate(-28deg) scale(0);
+  transform-origin: right center;
+}
+
+.leaf-right {
+  left: 1px;
+  border-radius: 0 100% 0 100%;
+  transform: rotate(30deg) scale(0);
+  transform-origin: left center;
+}
+
+/* Three overlapping shapes create each tulip's petals. */
+.bloom {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 6px;
+  width: 55px;
+  height: 61px;
+  opacity: 0;
+  transform: scale(.08);
+  transform-origin: center bottom;
+  border-radius: 48% 48% 40% 40%;
+  background: linear-gradient(120deg, #f8b5c4, #df718d 72%, #c95776);
+  box-shadow: inset 6px 0 9px #ffffff42;
+}
+
+.bloom::before,
+.bloom::after,
+.bloom i {
+  position: absolute;
+  content: "";
+  display: block;
+  bottom: 3px;
+  width: 26px;
+  height: 48px;
+  border-radius: 80% 20% 55% 45%;
+  background: linear-gradient(135deg, #ffd9df, #e17c96);
+}
+
+.bloom::before {
+  left: -1px;
+  transform: rotate(-15deg);
+}
+
+.bloom::after {
+  right: -1px;
+  transform: scaleX(-1) rotate(-15deg);
+}
+
+.bloom i {
+  left: 15px;
+  bottom: 2px;
+  z-index: 2;
+  height: 54px;
+  width: 25px;
+  border-radius: 48% 48% 40% 40%;
+  background: linear-gradient(90deg, #e9829d, #f7b8c5);
+}
+
+.white .bloom {
+  background: linear-gradient(120deg, #fffdf8, #f2e7dc 75%, #dfd0c6);
+}
+
+.white .bloom::before,
+.white .bloom::after {
+  background: linear-gradient(135deg, #fffefa, #eaded8);
+}
+
+.white .bloom i {
+  background: linear-gradient(90deg, #f2e4dc, #fff8ef);
+}
+
+.peach .bloom {
+  background: linear-gradient(120deg, #ffe0b9, #eea477 75%, #d98267);
+}
+
+.peach .bloom::before,
+.peach .bloom::after {
+  background: linear-gradient(135deg, #ffedce, #efa47d);
+}
+
+.peach .bloom i {
+  background: linear-gradient(90deg, #f3a27e, #ffd1ad);
+}
+
+.pink .bloom {
+  background: linear-gradient(120deg, #f9bfd0, #d96f91 75%, #bf5078);
+}
+
+/* Cream paper wraps around the stems. */
+.wrap {
+  position: absolute;
+  z-index: 4;
+  bottom: 0;
+  left: 54px;
+  width: 208px;
+  height: 133px;
+  opacity: 0;
+}
+
+.wrap-back {
+  background: #dfc0ad;
+  clip-path: polygon(4% 0, 96% 0, 70% 100%, 30% 100%);
+  transform: rotate(-7deg);
+}
+
+.wrap-front {
+  background: linear-gradient(110deg, #f7e8dc, #e6cabb 85%);
+  clip-path: polygon(0 0, 100% 0, 65% 100%, 35% 100%);
+}
+
+/* A simple ribbon made entirely with CSS. */
+.ribbon {
+  position: absolute;
+  z-index: 5;
+  bottom: 53px;
+  left: 130px;
+  width: 54px;
+  height: 26px;
+}
+
+.ribbon-loop {
+  position: absolute;
+  top: 0;
+  width: 31px;
+  height: 22px;
+  border: 4px solid #c8758a;
+  border-radius: 70% 50% 60% 50%;
+}
+
+.ribbon-loop-left {
+  left: -12px;
+  transform: rotate(22deg);
+}
+
+.ribbon-loop-right {
+  right: -12px;
+  transform: rotate(-22deg);
+}
+
+.ribbon-knot {
+  position: absolute;
+  top: 6px;
+  left: 17px;
+  z-index: 2;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #c8758a;
+}
+
+.ribbon-tail {
+  position: absolute;
+  top: 17px;
+  width: 4px;
+  height: 32px;
+  background: #c8758a;
+  border-radius: 5px;
+}
+
+.ribbon-tail-left {
+  left: 17px;
+  transform: rotate(12deg);
+}
+
+.ribbon-tail-right {
+  right: 15px;
+  transform: rotate(-12deg);
+}
+
+/* Animation starts only when JavaScript adds .blooming. */
+.bouquet.blooming .stem {
+  animation: stem-grow 1s ease-out forwards;
+}
+
+.bouquet.blooming .leaf {
+  animation: leaf-grow .55s ease-out forwards;
+}
+
+.bouquet.blooming .bloom {
+  animation: flower-open .85s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+.bouquet.blooming .wrap-back {
+  animation: wrap-appear .7s .5s ease forwards;
+}
+
+.bouquet.blooming .wrap-front {
+  animation: wrap-appear .7s .65s ease forwards;
+}
+
+.bouquet.blooming .ribbon-loop,
+.bouquet.blooming .ribbon-knot,
+.bouquet.blooming .ribbon-tail {
+  animation: wrap-appear .5s 1.2s ease forwards;
+  opacity: 0;
+}
+
+/* Different delays create the sequential blooming effect. */
+.tulip-1 .stem { animation-delay: .1s !important; }
+.tulip-2 .stem { animation-delay: .2s !important; }
+.tulip-3 .stem { animation-delay: .3s !important; }
+.tulip-4 .stem { animation-delay: .4s !important; }
+.tulip-5 .stem { animation-delay: .5s !important; }
+.tulip-6 .stem { animation-delay: .6s !important; }
+.tulip-7 .stem { animation-delay: .7s !important; }
+
+.tulip-1 .bloom { animation-delay: .65s !important; }
+.tulip-2 .bloom { animation-delay: .9s !important; }
+.tulip-3 .bloom { animation-delay: 1.15s !important; }
+.tulip-4 .bloom { animation-delay: 1.4s !important; }
+.tulip-5 .bloom { animation-delay: 1.65s !important; }
+.tulip-6 .bloom { animation-delay: 1.9s !important; }
+.tulip-7 .bloom { animation-delay: 2.15s !important; }
+
+.tulip-1 .leaf { animation-delay: .7s !important; }
+.tulip-2 .leaf { animation-delay: .85s !important; }
+.tulip-3 .leaf { animation-delay: 1s !important; }
+.tulip-4 .leaf { animation-delay: 1.15s !important; }
+.tulip-5 .leaf { animation-delay: 1.3s !important; }
+.tulip-6 .leaf { animation-delay: 1.45s !important; }
+.tulip-7 .leaf { animation-delay: 1.6s !important; }
+
+/* Gentle movement once the bouquet has bloomed. */
+.bouquet.blooming .tulip {
+  animation: flower-sway 4s ease-in-out 3s infinite alternate;
+}
+
+.sparkle {
+  position: absolute;
+  z-index: 0;
+  color: #c98c9a;
+  opacity: 0;
+  font-size: 23px;
+}
+
+.sparkle-1 { top: 54px; left: 12%; }
+.sparkle-2 { top: 105px; right: 12%; }
+.sparkle-3 { bottom: 45px; right: 20%; }
+
+.bouquet.blooming ~ .sparkle-1 {
+  animation: twinkle 2s 1.5s infinite;
+}
+
+.bouquet.blooming ~ .sparkle-2 {
+  animation: twinkle 2.3s 1.8s infinite;
+}
+
+.bouquet.blooming ~ .sparkle-3 {
+  animation: twinkle 2.5s 2s infinite;
+}
+
+/* Buttons and messages */
+.button {
+  min-height: 52px;
+  padding: 15px 24px;
+  border: 0;
+  border-radius: 40px;
+  background: linear-gradient(120deg, var(--rose), var(--rose-dark));
+  color: white;
+  font: 600 14px 'DM Sans', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 9px 24px #bd526f30;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 13px 28px #bd526f40;
+}
+
+.button:focus-visible {
+  outline: 3px solid #8e4d61;
+  outline-offset: 4px;
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: .9;
+}
+
+.secondary {
+  margin-top: 15px;
+  background: #fffaf7;
+  color: var(--rose-dark);
+  border: 1px solid #e7c2cb;
+  box-shadow: none;
+}
+
+.message {
+  width: min(100%, 480px);
+  padding: 25px 12px 0;
+  animation: message-appear .9s ease both;
+}
+
+.message[hidden] {
+  display: none;
+}
+
+.message-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #c98c9a;
+}
+
+.message-divider::before,
+.message-divider::after {
+  content: "";
+  width: 65px;
+  height: 1px;
+  background: #e8c8cd;
+}
+
+.message h2 {
+  margin: 17px 0 10px;
+  font: 500 clamp(30px, 6vw, 38px) 'Playfair Display', Georgia, serif;
+}
+
+.wish,
+.final-wish {
+  margin: 0 auto;
+  color: #80666d;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.final-wish {
+  max-width: 390px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 21px;
+}
+
+.signature {
+  margin-top: 18px;
+  color: #b17684;
+  font: italic 16px 'Playfair Display', Georgia, serif;
+}
+
+footer {
+  margin-top: auto;
+  padding-top: 35px;
+  color: #b49da1;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.petal {
+  position: fixed;
+  top: -30px;
+  z-index: 0;
+  pointer-events: none;
+  color: #d98499;
+  opacity: .65;
+  animation: petal-fall linear forwards;
+}
+
+@keyframes stem-grow {
+  to { height: 158px; }
+}
+
+@keyframes flower-open {
+  0% { opacity: 0; transform: scale(.08) rotate(-16deg); }
+  70% { opacity: 1; transform: scale(1.08) rotate(4deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes leaf-grow {
+  0% { opacity: 0; transform: scale(0); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes wrap-appear {
+  to { opacity: 1; }
+}
+
+@keyframes flower-sway {
+  from { translate: 0 0; }
+  to { translate: 0 -3px; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: .25; transform: scale(.8) rotate(0); }
+  50% { opacity: .9; transform: scale(1.2) rotate(15deg); }
+}
+
+@keyframes message-appear {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes petal-fall {
+  to {
+    transform: translate3d(var(--drift), 110vh, 0) rotate(500deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .page { padding-top: 35px; }
+  .gift { height: 300px; }
+  .bouquet { transform: translateY(8px) scale(.82); }
+  .intro { max-width: 310px; font-size: 14px; }
+  .button { max-width: 100%; }
+  .message { padding-left: 6px; padding-right: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

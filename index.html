@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff8f3">
+  <meta name="description" content="A little birthday surprise made especially for Rey.">
+  <title>Rey's Birthday</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="petal-field" aria-hidden="true"></div>
+
+  <main class="page">
+    <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
+    <h1>For you, Rey <span class="title-flower">✿</span></h1>
+
+    <p class="intro">
+      Some flowers cannot be delivered in hand,
+      but these bloom just for you.
+    </p>
+
+    <section class="gift" aria-label="A bouquet of seven tulips">
+      <div class="bouquet" id="bouquet" aria-hidden="true">
+
+        <!-- Back flowers -->
+        <div class="tulip tulip-1 pink">
+          <span class="stem"></span><span class="leaf leaf-left"></span>
+          <span class="leaf leaf-right"></span><span class="bloom"><i></i></span>
+        </div>
+        <div class="tulip tulip-2 white">
+          <span class="stem"></span><span class="leaf leaf-left"></span>
+          <span class="leaf leaf-right"></span><span class="bloom"><i></i></span>
+        </div>
+        <div class="tulip tulip-3 peach">
+          <span class="stem"></span><span class="leaf leaf-left"></span>
+          <span class="leaf leaf-right"></span><span class="bloom"><i></i></span>
+        </div>
+        <div class="tulip tulip-4 pink">
+          <span class="stem"></span><span class="leaf leaf-left"></span>
+          <span class="leaf leaf-right"></span><span class="bloom"><i></i></span>
+        </div>
+
+        <!-- Front flowers -->
+        <div class="tulip tulip-5 peach">
+          <span class="stem"></span><span class="leaf leaf-left"></span>
+          <span class="leaf leaf-right"></span><span class="bloom"><i></i></span>
+        </div>
+        <div class="tulip tulip-6 white">
+          <span class="stem"></span><span class="leaf leaf-left"></span>
+          <span class="leaf leaf-right"></span><span class="bloom"><i></i></span>
+        </div>
+        <div class="tulip tulip-7 pink">
+          <span class="stem"></span><span class="leaf leaf-left"></span>
+          <span class="leaf leaf-right"></span><span class="bloom"><i></i></span>
+        </div>
+
+        <div class="wrap wrap-back"></div>
+        <div class="wrap wrap-front"></div>
+        <div class="ribbon">
+          <span class="ribbon-loop ribbon-loop-left"></span>
+          <span class="ribbon-loop ribbon-loop-right"></span>
+          <span class="ribbon-knot"></span>
+          <span class="ribbon-tail ribbon-tail-left"></span>
+          <span class="ribbon-tail ribbon-tail-right"></span>
+        </div>
+      </div>
+
+      <span class="sparkle sparkle-1">✧</span>
+      <span class="sparkle sparkle-2">✦</span>
+      <span class="sparkle sparkle-3">✧</span>
+    </section>
+
+    <button id="open-gift" class="button" type="button">
+      <span aria-hidden="true">✿</span> Let your flowers bloom
+    </button>
+
+    <section id="birthday-message" class="message" hidden aria-live="polite">
+      <div class="message-divider"><span>✦</span></div>
+      <h2>Happy birthday, Rey!</h2>
+      <p class="wish">
+        When miss 18+2 was born, the world learnt to smile a bit more haha.
+      </p>
+      <button id="continue-button" class="button secondary" type="button">
+        One more thing...
+      </button>
+    </section>
+
+    <section id="final-message" class="message final-message" hidden aria-live="polite">
+      <div class="message-divider"><span>♡</span></div>
+      <p class="final-wish">
+        You deserve all the beautiful things life has to offer.
+        Never forget that. ❤️
+      </p>
+    </section>
+
+    
+  </main>
+</body>
+</html>
