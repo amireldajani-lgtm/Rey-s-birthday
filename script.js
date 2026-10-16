@@ -63,7 +63,6 @@ let petalsStarted = false;
 
 // First interaction: bloom the bouquet and reveal the birthday wish.
 openButton.addEventListener("click", () => {
-
   playMusic();
   bouquet.classList.add("blooming");
 
